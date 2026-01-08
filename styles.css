@@ -241,7 +241,7 @@ body:hover .cursor-glow {
 /* Navbar */
 .navbar {
     position: fixed;
-    top: 0;
+    top: 40px;
     left: 0;
     right: 0;
     z-index: 1000;
@@ -2678,7 +2678,9 @@ body:hover .cursor-glow {
     color: var(--light-100);
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
-    margin-left: 15px;
+    margin-right: 15px;
+    /* Margin left yerine right veya auto */
+    margin-left: 0;
 }
 
 .weather-widget i {
@@ -2692,8 +2694,13 @@ body:hover .cursor-glow {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     height: 40px;
     overflow: hidden;
-    position: relative;
-    z-index: 90;
+    position: fixed;
+    /* Fixed position */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+    /* Highest z-index */
 }
 
 .ticker-title {

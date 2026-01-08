@@ -1185,6 +1185,9 @@
             `).join('');
         }
 
+        let videoIdCounter = videos.length + 1;
+        let imageIdCounter = 100;
+
         function generateVideoCode() {
             const url = document.getElementById('video-url').value;
             const title = document.getElementById('video-title').value;
@@ -1196,16 +1199,18 @@
             if (!title) { showToast('Başlık girin!', true); return; }
 
             const code = `{
-    id: ${videos.length + 1},
+    id: ${videoIdCounter},
     videoId: '${videoId}',
     title: '${title}',
     category: '${cat}',
     duration: '${dur}'
 },`;
 
+            videoIdCounter++; // Her kod oluşturulduğunda ID'yi artır
+
             document.getElementById('video-code-content').textContent = code;
             document.getElementById('video-code-box').style.display = 'block';
-            showToast('Kod oluşturuldu!');
+            showToast('Kod oluşturuldu! (ID: ' + (videoIdCounter - 1) + ')');
         }
 
         function extractYouTubeId(url) {
@@ -1246,15 +1251,17 @@
             if (!title) { showToast('Başlık girin!', true); return; }
 
             const code = `{
-    id: NEW_ID,
+    id: ${imageIdCounter},
     src: '${url}',
     title: '${title}',
     category: '${cat}'
 },`;
 
+            imageIdCounter++; // Her kod oluşturulduğunda ID'yi artır
+
             document.getElementById('image-code-content').textContent = code;
             document.getElementById('image-code-box').style.display = 'block';
-            showToast('Kod oluşturuldu!');
+            showToast('Kod oluşturuldu! (ID: ' + (imageIdCounter - 1) + ')');
         }
 
         // ========== FILE UPLOAD ==========

@@ -454,10 +454,12 @@ async function handleGoogleLogin() {
 
     } catch (error) {
         console.error("Giriş Hatası:", error);
-        let errorMsg = 'Giriş yapılamadı.';
+        let errorMsg = 'Giriş yapılamadı: ' + error.message; // Varsayılan olarak hatanın kendisini göster
+
         if (error.code === 'auth/popup-closed-by-user') errorMsg = 'Giriş penceresini kapattınız.';
         if (error.code === 'auth/cancelled-popup-request') errorMsg = 'İşlem iptal edildi.';
-        if (error.code === 'auth/operation-not-allowed') errorMsg = 'Google girişi aktif değil. Firebase Console\'dan Authentication > Google kısmını açın.';
+        if (error.code === 'auth/operation-not-allowed') errorMsg = 'Google girişi aktif değil! Firebase Console\'dan (Authentication > Sign-in method) Google\'ı açman lazım.';
+        if (error.code === 'auth/unauthorized-domain') errorMsg = 'Domain izni yok! Firebase Console > Authentication > Settings > Authorized Domains kısmına site adresini ekle.';
 
         showNotification(errorMsg, 'error');
     }

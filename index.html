@@ -67,13 +67,12 @@
     </div>
 
     <!-- News Ticker -->
-    <div class="news-ticker">
-        <div class="ticker-title"><i class="fas fa-bullhorn"></i> DUYURULAR</div>
-        <div class="ticker-content">
-            <div class="ticker-item">📢 Büyüksofulu web sitemiz yayına girmiştir!</div>
-            <div class="ticker-item">🎉 Geleneksel Yayla Şenlikleri bu yıl 15 Ağustos'ta yapılacaktır.</div>
-            <div class="ticker-item">⚠️ Köy yolundaki bakım çalışmaları tamamlanmıştır.</div>
-            <div class="ticker-item">🌲 Eğni Yaylası doğa yürüyüşü etkinliğine tüm halkımız davetlidir.</div>
+    <!-- Dinamik Duyuru Bandı (Varsayılan: Gizli) -->
+    <div id="announcement-bar" class="announcement-bar" style="display: none;">
+        <div class="ab-container">
+            <div class="ab-icon"><i class="fas fa-bullhorn"></i> DUYURU</div>
+            <div class="ab-text" id="announcement-text"></div>
+            <button id="close-announcement" class="ab-close"><i class="fas fa-times"></i></button>
         </div>
     </div>
 
@@ -355,6 +354,10 @@
                         <div class="dict-item">
                             <span class="word">Zahar</span>
                             <span class="meaning">Herhalde, galiba</span>
+                        </div>
+                        <div class="dict-item">
+                            <span class="word">Malik</span>
+                            <span class="meaning">Kahveci Mehmet</span>
                         </div>
                     </div>
                 </div>
@@ -647,11 +650,13 @@
                         <div class="tc-icon"><i class="fas fa-bus"></i></div>
                         <h3>Toplu Taşıma</h3>
                         <ul class="transport-list">
-                            <li><i class="fas fa-clock"></i> <strong>Adana Otogar:</strong> Her gün 08:00 ve 15:00'te
-                                Aladağ otobüsleri kalkmaktadır.</li>
+                            <li><i class="fas fa-clock"></i> <strong>Çifteminare - Gerdibi:</strong> Her gün 07:30 ile
+                                14:30 arasında Çifteminare'de belediye otobüsü kalkmaktadır. 409 Numaraya binerek ulaşım
+                                sağlayabilirsiniz.</li>
                             <li><i class="fas fa-clock"></i> <strong>Yüreğir Garajı:</strong> Saat başı Aladağ
                                 minibüsleri bulunmaktadır.</li>
-                            <li><i class="fas fa-shuttle-van"></i> Aladağ merkezden köye servis imkanı vardır.</li>
+                            <li><i class="fas fa-shuttle-van"></i> Aladağ merkezden köye servis imkanı vardır.İmdat
+                                Turizm ile gelebilirsiniz.</li>
                         </ul>
                     </div>
                 </div>
@@ -659,7 +664,7 @@
                 <div class="transport-map">
                     <div class="map-frame">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12692.06!2d35.4056!3d37.5522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152868b5a0b0a0a1%3A0x1234567890abcdef!2zQsO8ecO8a3NvZnVsdSwgQWxhZGHEnyxBZGFuYQ!5e0!3m2!1str!2str!4v1704712345678!5m2!1str!2str"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1581.3609775042873!2d35.196029132039456!3d37.5616140947187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2str!4v1767874672397!5m2!1str!2str"
                             width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade" title="Büyüksofulu Harita"></iframe>
                     </div>

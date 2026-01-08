@@ -241,12 +241,79 @@ body:hover .cursor-glow {
 /* Navbar */
 .navbar {
     position: fixed;
-    top: 40px;
+    top: 0;
+    /* Duyuru kalktığı için sıfırlandı */
     left: 0;
     right: 0;
     z-index: 1000;
     padding: 16px 0;
     transition: var(--transition);
+}
+
+/* New Announcement Bar Styles */
+.announcement-bar {
+    background: linear-gradient(90deg, #ef4444, #f97316);
+    /* Dikkat çekici renk */
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    top: 70px;
+    /* Navbar'ın hemen altı (yaklaşık) */
+    left: 0;
+    right: 0;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+    animation: slideDown 0.5s ease;
+}
+
+.ab-container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ab-icon {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.ab-text {
+    flex: 1;
+    font-weight: 500;
+}
+
+.ab-close {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.ab-close:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .navbar.scrolled {
@@ -400,7 +467,7 @@ body:hover .cursor-glow {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: var(--gradient-hero);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
 }
 
 /* Floating Cards */
@@ -476,15 +543,24 @@ body:hover .cursor-glow {
     padding: 0 24px;
 }
 
+
+
 .hero-location {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 24px;
+    padding: 12px 28px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 50px;
     font-size: 14px;
-    color: var(--light-100);
-    margin-bottom: 32px;
+    color: white;
+    margin-bottom: 30px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
 }
 
 .hero-location i {

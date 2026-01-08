@@ -15,6 +15,33 @@ const firebaseConfig = {
     measurementId: "G-YZBJRPK82K"
 };
 
+// Duyuru Sistemi
+function initAnnouncements() {
+    // İlk kez giriyorsa örnek duyuru göster
+    if (!localStorage.getItem('site_announcement')) {
+        localStorage.setItem('site_announcement', '🎉 Yenilenen yüzümüzle yayındayız! Mobil uyumlu yeni tasarımımızı keşfedin.');
+    }
+
+    const announcement = localStorage.getItem('site_announcement');
+    const isClosed = sessionStorage.getItem('announcement_closed');
+
+    if (announcement && !isClosed) {
+        const bar = document.getElementById('announcement-bar');
+        const text = document.getElementById('announcement-text');
+        const closeBtn = document.getElementById('close-announcement');
+
+        if (bar && text) {
+            text.innerHTML = announcement;
+            bar.style.display = 'block';
+
+            closeBtn?.addEventListener('click', () => {
+                bar.style.display = 'none';
+                sessionStorage.setItem('announcement_closed', 'true');
+            });
+        }
+    }
+}
+
 // Initialize Firebase
 let auth, currentUser = null;
 try {
@@ -197,6 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounters();
     initScrollAnimations();
     initContactForm();
+    initAnnouncements();
     initThemeToggle();
 });
 

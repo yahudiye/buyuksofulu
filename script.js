@@ -1001,13 +1001,66 @@ function submitVideo() {
    ========================================= */
 
 // Hava Durumu (Tarih Güncelleme)
-function initWeather() {
+// Hava Durumu (Open-Meteo API)
+async function initWeather() {
     const dateEl = document.getElementById('weather-date');
-    if (!dateEl) return;
+    const tempEl = document.getElementById('current-temp');
+    const descEl = document.getElementById('weather-desc');
+    const iconEl = document.getElementById('weather-icon');
+    const windEl = document.getElementById('wind');
+    const humidityEl = document.getElementById('humidity');
 
-    const now = new Date();
-    const options = { weekday: 'long', hour: '2-digit', minute: '2-digit' };
-    dateEl.textContent = now.toLocaleDateString('tr-TR', options);
+    // 1. Tarihi Güncelle (Her durumda çalışsın)
+    if (dateEl) {
+        const now = new Date();
+        const options = { weekday: 'long', hour: '2-digit', minute: '2-digit' };
+        dateEl.textContent = now.toLocaleDateString('tr-TR', options);
+    }
+
+    // 2. API Çağrısı (Aladağ Koordinatları: 37.5485, 35.3957)
+    try {
+        const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=37.5485&longitude=35.3957&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto');
+        if (!response.ok) throw new Error('API Hatası');
+
+        const data = await response.json();
+        const current = data.current;
+
+        // Elementler varsa doldur
+        if (tempEl) tempEl.textContent = `${Math.round(current.temperature_2m)}°C`;
+        if (windEl) windEl.textContent = `Rüzgar: ${current.wind_speed_10m} km/s`;
+        if (humidityEl) humidityEl.textContent = `Nem: %${current.relative_humidity_2m}`;
+
+        // Durum ve İkon
+        const code = current.weather_code;
+        const info = getWeatherInfo(code);
+
+        if (descEl) descEl.textContent = info.desc;
+        if (iconEl) iconEl.className = `fas ${info.icon} weather-main-icon`; // weather-main-icon stilini koru
+
+    } catch (error) {
+        console.error("Hava durumu alınamadı:", error);
+        if (descEl) descEl.textContent = "Veri alınamadı";
+    }
+}
+
+function getWeatherInfo(code) {
+    // WMO Weather Codes
+    // 0: Açık
+    if (code === 0) return { desc: 'Açık', icon: 'fa-sun' };
+    // 1-3: Bulutlu
+    if (code >= 1 && code <= 3) return { desc: 'Parçalı Bulutlu', icon: 'fa-cloud-sun' };
+    // 45,48: Sis
+    if (code === 45 || code === 48) return { desc: 'Sisli', icon: 'fa-smog' };
+    // 51-67: Yağmur (Hafif-Orta-Yoğun)
+    if (code >= 51 && code <= 67) return { desc: 'Yağmurlu', icon: 'fa-cloud-rain' };
+    // 71-77: Kar
+    if (code >= 71 && code <= 77) return { desc: 'Karlı', icon: 'fa-snowflake' };
+    // 80-82: Sağanak
+    if (code >= 80 && code <= 82) return { desc: 'Sağanak Yağış', icon: 'fa-cloud-showers-heavy' };
+    // 95-99: Fırtına
+    if (code >= 95 && code <= 99) return { desc: 'Fırtına', icon: 'fa-bolt' };
+
+    return { desc: 'Bulutlu', icon: 'fa-cloud' };
 }
 
 // Sayfa yüklendiğinde çalıştır

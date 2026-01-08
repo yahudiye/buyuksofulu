@@ -844,6 +844,7 @@
                 <div class="nav-item active" data-section="dashboard"><i class="fas fa-home"></i> Dashboard</div>
                 <div class="nav-item" data-section="videos"><i class="fab fa-youtube"></i> Videolar</div>
                 <div class="nav-item" data-section="gallery"><i class="fas fa-images"></i> Galeri</div>
+                <div class="nav-item" data-section="announcements"><i class="fas fa-bullhorn"></i> Duyurular</div>
                 <div class="nav-item" data-section="settings"><i class="fas fa-cog"></i> Ayarlar</div>
             </nav>
 
@@ -954,6 +955,33 @@
                                 <strong>Rakım:</strong> 951m<br>
                                 <strong>Aladağ'a:</strong> 28 km<br>
                                 <strong>Adana'ya:</strong> 128 km
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <!-- ANNOUNCEMENTS -->
+                <section class="admin-section" id="announcements-section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-bullhorn"></i> Duyuru Yönetimi</h2>
+                    </div>
+                    <div class="cards-grid">
+                        <div class="item-card" style="padding: 24px;">
+                            <h4 style="margin-bottom: 16px;">Aktif Duyuru</h4>
+                            <div class="form-group" style="margin-bottom: 16px;">
+                                <label>Duyuru Metni</label>
+                                <textarea id="announcement-text" placeholder="Duyuru metnini buraya yazın..."
+                                    style="height: 100px;"></textarea>
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <button class="btn btn-primary" onclick="saveAnnouncement()">
+                                    <i class="fas fa-paper-plane"></i> Yayınla
+                                </button>
+                                <button class="btn btn-delete" onclick="removeAnnouncement()">
+                                    <i class="fas fa-trash"></i> Yayından Kaldır
+                                </button>
+                            </div>
+                            <p style="margin-top: 15px; font-size: 13px; color: var(--gray);">
+                                * Duyuru yayınlandığında sitenin en üstünde, yeşil bant içerisinde görünecektir.
                             </p>
                         </div>
                     </div>
@@ -1339,8 +1367,43 @@
             document.getElementById('stat-images').textContent = images.length;
         }
 
+        // ========== FIREBASE & ANNOUNCEMENTS ==========
+        // Firebase Config (script.js ile aynı olmalı)
+        /* 
+           Not: Gerçek zamanlı ve cihazlar arası senkronizasyon için 
+           Firebase Database'in Console'dan oluşturulması gerekir.
+           Şimdilik LocalStorage kullanıyoruz.
+        */
+
+        function loadAnnouncement() {
+            const text = localStorage.getItem('site_announcement') || '';
+            const textArea = document.getElementById('announcement-text');
+            if (textArea) textArea.value = text;
+        }
+
+        function saveAnnouncement() {
+            const text = document.getElementById('announcement-text').value;
+            if (!text) { showToast('Duyuru metni boş olamaz!', true); return; }
+
+            // 1. Veriyi Kaydet
+            localStorage.setItem('site_announcement', text);
+            localStorage.setItem('announcement_updated', Date.now()); // Tetikleyici
+
+            // 2. Kapatma tercihini sıfırla (Herkes tekrar görsün)
+            sessionStorage.removeItem('announcement_closed');
+
+            showToast('Duyuru başarıyla yayınlandı!');
+        }
+
+        function removeAnnouncement() {
+            localStorage.removeItem('site_announcement');
+            document.getElementById('announcement-text').value = '';
+            showToast('Duyuru yayından kaldırıldı.');
+        }
+
         // Init
         checkAuth();
+        loadAnnouncement(); // Duyuruyu yükle
     </script>
 </body>
 

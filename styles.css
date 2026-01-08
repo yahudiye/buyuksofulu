@@ -2396,6 +2396,38 @@ body:hover .cursor-glow {
     margin-bottom: 48px;
 }
 
+/* Video Tabs */
+.video-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.video-tab-btn {
+    padding: 12px 28px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--light-100);
+    font-weight: 500;
+    font-size: 14px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.video-tab-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--primary);
+}
+
+.video-tab-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
 .video-card {
     background: rgba(255, 255, 255, 0.05);
     border-radius: var(--radius-lg);

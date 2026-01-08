@@ -644,17 +644,43 @@ document.querySelector('.nl-form')?.addEventListener('submit', (e) => {
 // VIDEO GALLERY FUNCTIONS
 // ============================================
 
+let filteredVideos = [...videoData];
+
 function initVideoGallery() {
     if (!videoGrid) return;
-    renderVideoGallery();
+    renderVideoGallery(videoData);
     createVideoLightbox();
+    initVideoTabs();
 }
 
-function renderVideoGallery() {
+function initVideoTabs() {
+    document.querySelectorAll('.video-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active state
+            document.querySelectorAll('.video-tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Filter videos
+            const filter = btn.dataset.filter;
+            filteredVideos = filter === 'all'
+                ? [...videoData]
+                : videoData.filter(video => video.category === filter);
+
+            renderVideoGallery(filteredVideos);
+        });
+    });
+}
+
+function renderVideoGallery(videos) {
     if (!videoGrid) return;
 
-    videoGrid.innerHTML = videoData.map(video => `
-        <div class="video-card" data-video-id="${video.videoId}">
+    if (videos.length === 0) {
+        videoGrid.innerHTML = '<p style="text-align:center;color:var(--light-400);grid-column:1/-1;padding:40px;">Bu kategoride henüz video yok.</p>';
+        return;
+    }
+
+    videoGrid.innerHTML = videos.map(video => `
+        <div class="video-card" data-video-id="${video.videoId}" data-category="${video.category}">
             <div class="video-thumbnail">
                 <img src="https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg" alt="${video.title}" 
                      onerror="this.src='https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg'">

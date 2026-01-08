@@ -430,11 +430,26 @@ function initAuth() {
 }
 
 async function handleGoogleLogin() {
+    // DEMO GİRİŞ (Firebase Config henüz ayarlanmadığı için)
+    // Bu kısım canlıya alınmadan önce gerçek Firebase Auth ile değiştirilmelidir.
+
+    closeAllModals();
+
+    // Simüle edilmiş kullanıcı girişi
+    currentUser = {
+        displayName: 'Site Ziyaretçisi',
+        email: 'ziyaretci@buyuksofulu.com',
+        photoURL: 'https://ui-avatars.com/api/?name=Ziyaretci&background=10b981&color=fff'
+    };
+
+    updateAuthUI();
+    showNotification('Hoş geldiniz! (Demo Modu)', 'success');
+
+    /* GERÇEK KOD (Config girildikten sonra aktif edilecek):
     if (!auth) {
-        showNotification('Firebase yapılandırması gerekli. Lütfen admin ile iletişime geçin.', 'error');
+        showNotification('Firebase yapılandırması gerekli.', 'error');
         return;
     }
-
     try {
         const provider = new firebase.auth.GoogleAuthProvider();
         await auth.signInWithPopup(provider);
@@ -444,6 +459,7 @@ async function handleGoogleLogin() {
         console.error(error);
         showNotification('Giriş yapılamadı. Lütfen tekrar deneyin.', 'error');
     }
+    */
 }
 
 function updateAuthUI() {

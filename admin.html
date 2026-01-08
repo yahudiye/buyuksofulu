@@ -1063,13 +1063,10 @@
 
     <div class="toast" id="toast"><i class="fas fa-check"></i> <span id="toast-msg"></span></div>
 
-    <script>
-        // ========== CONFIG ==========
-        const ADMIN_CREDENTIALS = {
-            username: 'admin',
-            password: 'buyuksofulu2024'
-        };
+    <!-- CONFIG DOSYASI - ŞİFRE BURADA -->
+    <script src="config.js"></script>
 
+    <script>
         // ========== DATA ==========
         const videos = [
             { id: 'SPldaxoQnTM', title: 'Büyüksofulu Köyü Tanıtımı', category: 'koy', duration: '3:45' },
@@ -1090,9 +1087,17 @@
             const username = document.getElementById('login-username').value;
             const password = document.getElementById('login-password').value;
 
-            const savedPassword = localStorage.getItem('adminPassword') || ADMIN_CREDENTIALS.password;
+            // Config dosyasından şifre al, yoksa localStorage'dan
+            const configUsername = (typeof ADMIN_CONFIG !== 'undefined') ? ADMIN_CONFIG.username : 'admin';
+            const configPassword = (typeof ADMIN_CONFIG !== 'undefined') ? ADMIN_CONFIG.password : null;
+            const savedPassword = localStorage.getItem('adminPassword') || configPassword;
 
-            if (username === ADMIN_CREDENTIALS.username && password === savedPassword) {
+            if (!savedPassword) {
+                showToast('config.js dosyasında şifre tanımlanmamış!', true);
+                return;
+            }
+
+            if (username === configUsername && password === savedPassword) {
                 localStorage.setItem('adminLoggedIn', 'true');
                 showAdminPanel();
             } else {

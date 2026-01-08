@@ -1,0 +1,13 @@
+# Admin Config - şifre içeriyor, GitHub'a yüklenmemeli
+config.js
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/

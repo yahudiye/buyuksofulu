@@ -2691,6 +2691,7 @@ body:hover .cursor-glow {
     font-size: 64px;
     background: linear-gradient(to bottom, #fff, #a5b4fc);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 

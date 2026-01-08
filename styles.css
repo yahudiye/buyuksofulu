@@ -340,9 +340,12 @@ body:hover .cursor-glow {
 }
 
 .nav-container {
-    max-width: var(--container);
-    margin: 0 auto;
-    padding: 0 24px;
+    max-width: 100%;
+    /* Ekran genişliği */
+    width: 100%;
+    margin: 0;
+    padding: 0 40px;
+    /* Kenar boşlukları */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -384,23 +387,39 @@ body:hover .cursor-glow {
 
 .nav-menu {
     display: flex;
-    gap: 8px;
+    gap: 6px;
+    /* Menüyü ortala */
+    margin: 0 auto;
+    /* Arka plan kapsayıcı */
+    background: rgba(0, 0, 0, 0.4);
+    padding: 6px;
+    border-radius: 50px;
+    /* Hap şeklinde menü */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .nav-link {
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-weight: 500;
-    color: var(--light-400);
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition);
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.nav-link:hover,
+.nav-link:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
 .nav-link.active {
-    color: var(--light-100);
-    background: var(--glass-bg);
+    color: white;
+    background: var(--primary);
+    /* Aktif olan belirgin olsun */
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 
 .nav-right {

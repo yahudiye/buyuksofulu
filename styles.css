@@ -429,37 +429,56 @@ body:hover .cursor-glow {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.4);
+    /* Koyu Cam Kapsül */
+    padding: 4px;
+    padding-left: 6px;
+    /* İkon tarafına biraz boşluk */
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .theme-btn {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    color: var(--light-100);
-    font-size: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .theme-btn:hover {
-    background: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
 .login-btn {
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-weight: 500;
-    color: var(--light-100);
+    padding: 8px 18px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--dark-900);
+    background: #e2e8f0;
+    /* Hafif gri-beyaz */
     display: flex;
     align-items: center;
     gap: 8px;
+    border: none;
+    transition: all 0.3s ease;
 }
 
 .login-btn:hover {
     background: var(--primary);
-    border-color: var(--primary);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
 .nav-toggle {

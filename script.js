@@ -190,9 +190,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Preloader
 function initPreloader() {
-    window.addEventListener('load', () => {
-        setTimeout(() => preloader?.classList.add('hidden'), 600);
-    });
+    const hidePreloader = () => {
+        setTimeout(() => {
+            preloader?.classList.add('hidden');
+        }, 600);
+    };
+
+    // Hide on load
+    window.addEventListener('load', hidePreloader);
+
+    // Fallback - hide after 3 seconds even if load event doesn't fire
+    setTimeout(() => {
+        preloader?.classList.add('hidden');
+    }, 3000);
 }
 
 // Custom Cursor

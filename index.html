@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Büyüksofulu Köyü Resmi Web Sitesi - Adana Aladağ'ın incisi, Toros'ların gizli cenneti">
+    <meta name="keywords" content="Büyüksofulu, Aladağ, Adana, Toros Dağları, köy, yayla, doğa">
+    <title>Büyüksofulu Köyü | Aladağ - Adana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"><i class="fas fa-mountain"></i><span>Büyüksofulu</span></div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal auth-modal">
+        <div class="modal-content auth-content">
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+            <div class="auth-header">
+                <i class="fas fa-mountain"></i>
+                <h2>Büyüksofulu'ya Hoş Geldiniz</h2>
+                <p>İçerik paylaşmak için giriş yapın</p>
+            </div>
+            <div class="auth-body">
+                <button id="google-login-btn" class="btn-google">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="#4285F4"
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                        <path fill="#34A853"
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                        <path fill="#FBBC05"
+                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                        <path fill="#EA4335"
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                    </svg>
+                    Google ile Giriş Yap
+                </button>
+                <div class="auth-divider"><span>veya</span></div>
+                <div class="guest-info">
+                    <i class="fas fa-eye"></i>
+                    <p>Galeriyi görüntülemek için giriş yapmanıza gerek yok. Sadece içerik yüklemek için giriş
+                        gereklidir.</p>
+                </div>
+            </div>
+            <div class="auth-footer">
+                <p>Giriş yaparak <a href="#">Kullanım Şartları</a>'nı kabul etmiş olursunuz.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Menu (shown when logged in) -->
+    <div id="user-menu" class="user-menu hidden">
+        <img id="user-avatar" src="" alt="Profil" class="user-avatar">
+        <div class="user-dropdown">
+            <div class="user-info">
+                <span id="user-name"></span>
+                <span id="user-email"></span>
+            </div>
+            <button id="logout-btn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo"><i class="fas fa-mountain"></i><span>Büyüksofulu</span></a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Anasayfa</a>
+                <a href="#about" class="nav-link">Hakkımızda</a>
+                <a href="#gallery" class="nav-link">Galeri</a>
+                <a href="#videos" class="nav-link">Videolar</a>
+                <a href="#attractions" class="nav-link">Gezilecek Yerler</a>
+                <a href="#news" class="nav-link">Haberler</a>
+                <a href="#contact" class="nav-link">İletişim</a>
+            </div>
+            <div class="nav-actions">
+                <button id="login-btn" class="nav-login-btn"><i class="fas fa-user"></i> Giriş</button>
+            </div>
+            <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide active"
+                style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920')">
+            </div>
+            <div class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920')">
+            </div>
+            <div class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1920')">
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-map-marker-alt"></i><span>Aladağ, Adana - Toros Dağları</span>
+            </div>
+            <h1 class="hero-title">Büyüksofulu<br><span class="highlight">Köyü</span></h1>
+            <p class="hero-subtitle">Toros'ların eteklerinde, doğanın kucağında, tarihin izinde<br>Anadolu'nun saklı
+                cennetine hoş geldiniz</p>
+            <div class="hero-buttons">
+                <a href="#gallery" class="btn btn-primary"><i class="fas fa-images"></i> Galeriyi Keşfet</a>
+                <a href="#attractions" class="btn btn-outline"><i class="fas fa-hiking"></i> Gezilecek Yerler</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item"><i class="fas fa-users"></i>
+                    <div><span class="stat-number" data-count="450">0</span><span>Nüfus</span></div>
+                </div>
+                <div class="stat-item"><i class="fas fa-mountain"></i>
+                    <div><span class="stat-number" data-count="1350">0</span><span>Rakım (m)</span></div>
+                </div>
+                <div class="stat-item"><i class="fas fa-tree"></i>
+                    <div><span class="stat-number" data-count="100">0</span><span>Yıllık Orman</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-slider-nav">
+            <button class="slider-dot active" data-slide="0"></button>
+            <button class="slider-dot" data-slide="1"></button>
+            <button class="slider-dot" data-slide="2"></button>
+        </div>
+        <a href="#about" class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div><span>Aşağı Kaydır</span>
+        </a>
+    </section>
+
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="container">
+            <div class="announcement-content">
+                <i class="fas fa-bullhorn"></i>
+                <p><strong>Duyuru:</strong> Yıllık köy şenliğimiz 15 Ağustos'ta! Tüm hemşehrilerimizi bekliyoruz.</p>
+                <a href="#news" class="announcement-link">Detaylar <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header"><span class="section-tag"><i class="fas fa-info-circle"></i> Hakkımızda</span>
+                <h2 class="section-title">Köyümüzün <span class="highlight">Hikayesi</span></h2>
+                <p class="section-desc">Yüzyılların birikimi, nesillerin mirası</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image-container">
+                    <div class="about-image"><img
+                            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800"
+                            alt="Büyüksofulu Manzarası"></div>
+                    <div class="floating-card card-1"><i class="fas fa-award"></i><span>Aladağ'ın<br>İncisi</span></div>
+                    <div class="floating-card card-2"><i class="fas fa-leaf"></i><span>Doğal<br>Yaşam</span></div>
+                </div>
+                <div class="about-content">
+                    <h3>Toros'ların Gizli Cenneti</h3>
+                    <p>Büyüksofulu Köyü, Adana'nın Aladağ ilçesine bağlı, Toros Dağları'nın eteklerinde kurulmuş tarihi
+                        bir Anadolu köyüdür. Yeşil ormanları, berrak suları ve temiz havasıyla doğa tutkunlarının
+                        gözdesidir.</p>
+                    <p>Köyümüz, geleneksel yaşam tarzını koruyan, misafirperver insanları ve zengin kültürel mirası ile
+                        öne çıkmaktadır. Yaylacılık geleneği hala devam etmekte, organik tarım ve hayvancılık temel
+                        geçim kaynağımızdır.</p>
+                    <div class="about-features">
+                        <div class="feature-item"><i class="fas fa-mountain"></i>
+                            <div>
+                                <h4>Toros Manzarası</h4>
+                                <p>Muhteşem dağ silüeti</p>
+                            </div>
+                        </div>
+                        <div class="feature-item"><i class="fas fa-water"></i>
+                            <div>
+                                <h4>Berrak Dereler</h4>
+                                <p>Doğal su kaynakları</p>
+                            </div>
+                        </div>
+                        <div class="feature-item"><i class="fas fa-home"></i>
+                            <div>
+                                <h4>Tarihi Evler</h4>
+                                <p>Geleneksel mimari</p>
+                            </div>
+                        </div>
+                        <div class="feature-item"><i class="fas fa-hiking"></i>
+                            <div>
+                                <h4>Doğa Yürüyüşü</h4>
+                                <p>Trekking rotaları</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section">
+        <div class="container">
+            <div class="section-header"><span class="section-tag"><i class="fas fa-camera"></i> Galeri</span>
+                <h2 class="section-title">Fotoğraf <span class="highlight">Galerisi</span></h2>
+                <p class="section-desc">Köyümüzün en güzel karelerini keşfedin</p>
+            </div>
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">Tümü</button>
+                <button class="filter-btn" data-filter="nature">Doğa</button>
+                <button class="filter-btn" data-filter="village">Köy</button>
+                <button class="filter-btn" data-filter="culture">Kültür</button>
+                <button class="filter-btn" data-filter="yayla">Yayla</button>
+            </div>
+            <div class="gallery-grid" id="gallery-grid"></div>
+            <div class="gallery-actions">
+                <button class="btn btn-primary" id="upload-photo-btn"><i class="fas fa-cloud-upload-alt"></i> Fotoğraf
+                    Paylaş</button>
+                <p class="upload-note"><i class="fas fa-lock"></i> Paylaşım için Google hesabı ile giriş gereklidir</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="videos section">
+        <div class="container">
+            <div class="section-header light"><span class="section-tag"><i class="fas fa-video"></i> Videolar</span>
+                <h2 class="section-title">Video <span class="highlight">Arşivi</span></h2>
+                <p class="section-desc">Köyümüzün hikayelerini izleyin</p>
+            </div>
+            <div class="video-grid" id="video-grid"></div>
+            <div class="video-actions">
+                <button class="btn btn-outline-light" id="upload-video-btn"><i class="fas fa-upload"></i> Video
+                    Paylaş</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attractions Section -->
+    <section id="attractions" class="attractions section">
+        <div class="container">
+            <div class="section-header"><span class="section-tag"><i class="fas fa-map-marked-alt"></i> Keşfet</span>
+                <h2 class="section-title">Gezilecek <span class="highlight">Yerler</span></h2>
+                <p class="section-desc">Bölgemizin doğal ve tarihi güzellikleri</p>
+            </div>
+            <div class="attractions-grid">
+                <div class="attraction-card featured">
+                    <div class="attraction-image"><img
+                            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800"
+                            alt="Aladağlar Milli Parkı"><span class="attraction-badge"><i class="fas fa-star"></i> Öne
+                            Çıkan</span></div>
+                    <div class="attraction-content"><span class="attraction-distance"><i class="fas fa-route"></i> 25
+                            km</span>
+                        <h3>Aladağlar Milli Parkı</h3>
+                        <p>Türkiye'nin en önemli dağcılık ve doğa turizmi merkezlerinden biri. Muhteşem zirveler ve
+                            buzul gölleri.</p><a href="#" class="attraction-link">Keşfet <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="attraction-card">
+                    <div class="attraction-image"><img
+                            src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=600"
+                            alt="Kapuzbaşı Şelaleleri"></div>
+                    <div class="attraction-content"><span class="attraction-distance"><i class="fas fa-route"></i> 40
+                            km</span>
+                        <h3>Kapuzbaşı Şelaleleri</h3>
+                        <p>7 ayrı kaynaktan dökülen muhteşem şelale sistemi.</p>
+                    </div>
+                </div>
+                <div class="attraction-card">
+                    <div class="attraction-image"><img
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Eğni Yaylası">
+                    </div>
+                    <div class="attraction-content"><span class="attraction-distance"><i class="fas fa-route"></i> 15
+                            km</span>
+                        <h3>Eğni Yaylası</h3>
+                        <p>Yaz aylarında serinleyebileceğiniz muhteşem yayla.</p>
+                    </div>
+                </div>
+                <div class="attraction-card">
+                    <div class="attraction-image"><img
+                            src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600"
+                            alt="Simit Şelalesi"></div>
+                    <div class="attraction-content"><span class="attraction-distance"><i class="fas fa-route"></i> 30
+                            km</span>
+                        <h3>Simit Şelalesi</h3>
+                        <p>Kamp yapabilir, doğayla iç içe vakit geçirebilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Products Section -->
+    <section class="products section">
+        <div class="container">
+            <div class="section-header"><span class="section-tag"><i class="fas fa-seedling"></i> Yöresel</span>
+                <h2 class="section-title">Köyümüzün <span class="highlight">Lezzetleri</span></h2>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon"><i class="fas fa-cheese"></i></div>
+                    <h4>Tulum Peyniri</h4>
+                    <p>Geleneksel yöntemlerle yapılan organik peynir</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon"><i class="fas fa-bread-slice"></i></div>
+                    <h4>Köy Ekmeği</h4>
+                    <p>Taş fırında pişen mis kokulu ekmek</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon"><i class="fas fa-jar"></i></div>
+                    <h4>Dağ Balı</h4>
+                    <p>Toros çiçeklerinden toplanan doğal bal</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon"><i class="fas fa-leaf"></i></div>
+                    <h4>Organik Sebze</h4>
+                    <p>Doğal gübreli, sağlıklı ürünler</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weather Widget -->
+    <section class="weather-section">
+        <div class="container">
+            <div class="weather-widget">
+                <div class="weather-main">
+                    <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
+                    <div class="weather-temp"><span class="temp">18°</span><span class="location">Büyüksofulu,
+                            Aladağ</span></div>
+                </div>
+                <div class="weather-details">
+                    <div class="weather-item"><i class="fas fa-wind"></i><span>8 km/s</span><span>Rüzgar</span></div>
+                    <div class="weather-item"><i class="fas fa-tint"></i><span>55%</span><span>Nem</span></div>
+                    <div class="weather-item"><i
+                            class="fas fa-thermometer-half"></i><span>25°/12°</span><span>Max/Min</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news section">
+        <div class="container">
+            <div class="section-header"><span class="section-tag"><i class="fas fa-newspaper"></i> Haberler</span>
+                <h2 class="section-title">Son <span class="highlight">Gelişmeler</span></h2>
+            </div>
+            <div class="news-grid" id="news-grid"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials section">
+        <div class="container">
+            <div class="section-header light"><span class="section-tag"><i class="fas fa-quote-left"></i>
+                    Yorumlar</span>
+                <h2 class="section-title">Ziyaretçi <span class="highlight">Görüşleri</span></h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <p>"Büyüksofulu, şehrin stresinden kaçıp doğayla buluşabileceğiniz harika bir yer. İnsanları çok
+                        sıcakkanlı."</p>
+                    <div class="testimonial-author"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                        <div><strong>Ahmet Yılmaz</strong><span>İstanbul</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Köydeki tulum peyniri ve köy ekmeği inanılmaz lezzetli. Her yıl gelip stok yapıyorum!"</p>
+                    <div class="testimonial-author"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+                        <div><strong>Ayşe Kaya</strong><span>Ankara</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Trekking için muhteşem rotalar var. Aladağlar'a çıkış noktası olarak ideal."</p>
+                    <div class="testimonial-author"><img src="https://randomuser.me/api/portraits/men/67.jpg" alt="">
+                        <div><strong>Mehmet Demir</strong><span>İzmir</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header"><span class="section-tag"><i class="fas fa-envelope"></i> İletişim</span>
+                <h2 class="section-title">Bize <span class="highlight">Ulaşın</span></h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-card"><i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Adres</h4>
+                            <p>Büyüksofulu Mahallesi<br>Aladağ / Adana</p>
+                        </div>
+                    </div>
+                    <div class="info-card"><i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Muhtarlık</h4>
+                            <p>+90 (XXX) XXX XX XX</p>
+                        </div>
+                    </div>
+                    <div class="info-card"><i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-posta</h4>
+                            <p>buyuksofulu@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-card"><i class="fas fa-car"></i>
+                        <div>
+                            <h4>Ulaşım</h4>
+                            <p>Adana'dan 95 km<br>Aladağ'dan 12 km</p>
+                        </div>
+                    </div>
+                    <div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i
+                                class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a
+                            href="#"><i class="fab fa-whatsapp"></i></a></div>
+                </div>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group"><input type="text" id="name" required><label for="name">Adınız
+                                Soyadınız</label></div>
+                        <div class="form-group"><input type="email" id="email" required><label
+                                for="email">E-posta</label></div>
+                    </div>
+                    <div class="form-group"><input type="text" id="subject" required><label for="subject">Konu</label>
+                    </div>
+                    <div class="form-group"><textarea id="message" rows="4" required></textarea><label
+                            for="message">Mesajınız</label></div>
+                    <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-paper-plane"></i>
+                        Gönder</button>
+                </form>
+            </div>
+            <div class="map-container"><iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50000!2d35.3681!3d37.5547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDMzJzE2LjkiTiAzNcKwMjInMDUuMiJF!5e0!3m2!1str!2str!4v1"
+                    width="100%" height="400" style="border:0;border-radius:20px;" allowfullscreen=""
+                    loading="lazy"></iframe></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo"><i class="fas fa-mountain"></i><span>Büyüksofulu</span></div>
+                    <p>Adana Aladağ'ın incisi, Toros'ların gizli cenneti. Doğa, tarih ve misafirperverlik bir arada.</p>
+                    <div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i
+                                class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
+                </div>
+                <div class="footer-links">
+                    <h4>Hızlı Erişim</h4><a href="#home">Anasayfa</a><a href="#about">Hakkımızda</a><a
+                        href="#gallery">Galeri</a><a href="#attractions">Gezilecek Yerler</a><a
+                        href="#contact">İletişim</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Yararlı Linkler</h4><a href="#">Aladağ Belediyesi</a><a href="#">Adana Valiliği</a><a
+                        href="#">E-Devlet</a><a href="#">Hava Durumu</a>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Bülten</h4>
+                    <p>Köyümüzden haberler için abone olun</p>
+                    <form><input type="email" placeholder="E-posta adresiniz"><button type="submit"><i
+                                class="fas fa-paper-plane"></i></button></form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Büyüksofulu Köyü. Tüm hakları saklıdır. | <a href="#">Gizlilik</a> | <a href="#">Kullanım
+                        Şartları</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close"><i class="fas fa-times"></i></button>
+        <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-content"><img id="lightbox-img" src="" alt="">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div id="upload-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">İçerik Paylaş</h3><button class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div id="upload-login-required" class="login-required">
+                    <i class="fas fa-lock"></i>
+                    <h4>Giriş Gerekli</h4>
+                    <p>İçerik paylaşmak için Google hesabınızla giriş yapın</p>
+                    <button id="upload-login-btn" class="btn-google"><svg viewBox="0 0 24 24" width="20" height="20">
+                            <path fill="#4285F4"
+                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                            <path fill="#34A853"
+                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                            <path fill="#FBBC05"
+                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                            <path fill="#EA4335"
+                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                        </svg> Google ile Giriş Yap</button>
+                </div>
+                <div id="upload-form-container" class="upload-form-container hidden">
+                    <div class="upload-area" id="upload-area"><i class="fas fa-cloud-upload-alt"></i>
+                        <h4>Dosyalarınızı sürükleyin</h4>
+                        <p>JPG, PNG, MP4, MOV (Max 50MB)</p><input type="file" id="file-input" multiple
+                            accept="image/*,video/*"><button class="btn btn-outline">Dosya Seç</button>
+                    </div>
+                    <div class="upload-preview" id="upload-preview"></div>
+                    <div class="upload-details">
+                        <div class="form-group"><label>Başlık</label><input type="text" id="upload-title"
+                                placeholder="Fotoğraf/Video başlığı"></div>
+                        <div class="form-group"><label>Kategori</label><select id="upload-category">
+                                <option value="nature">Doğa</option>
+                                <option value="village">Köy</option>
+                                <option value="culture">Kültür</option>
+                                <option value="yayla">Yayla</option>
+                            </select></div>
+                        <div class="form-group"><label>Açıklama</label><textarea id="upload-desc" rows="2"
+                                placeholder="Kısa açıklama"></textarea></div>
+                        <button class="btn btn-primary btn-block" id="submit-upload"><i class="fas fa-upload"></i>
+                            Paylaş</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal video-modal">
+        <div class="modal-content"><button class="modal-close"><i class="fas fa-times"></i></button><video
+                id="video-player" controls></video>
+            <div class="video-modal-info">
+                <h3 id="video-modal-title"></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

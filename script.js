@@ -1010,6 +1010,10 @@ async function initWeather() {
     const windEl = document.getElementById('wind');
     const humidityEl = document.getElementById('humidity');
 
+    // Navbar Widget Elementleri
+    const navIconEl = document.getElementById('nav-icon');
+    const navTempEl = document.getElementById('nav-temp');
+
     // 1. Tarihi Güncelle (Her durumda çalışsın)
     if (dateEl) {
         const now = new Date();
@@ -1025,7 +1029,7 @@ async function initWeather() {
         const data = await response.json();
         const current = data.current;
 
-        // Elementler varsa doldur
+        // Elementler varsa doldur (Ana Bölüm)
         if (tempEl) tempEl.textContent = `${Math.round(current.temperature_2m)}°C`;
         if (windEl) windEl.textContent = `Rüzgar: ${current.wind_speed_10m} km/s`;
         if (humidityEl) humidityEl.textContent = `Nem: %${current.relative_humidity_2m}`;
@@ -1035,7 +1039,11 @@ async function initWeather() {
         const info = getWeatherInfo(code);
 
         if (descEl) descEl.textContent = info.desc;
-        if (iconEl) iconEl.className = `fas ${info.icon} weather-main-icon`; // weather-main-icon stilini koru
+        if (iconEl) iconEl.className = `fas ${info.icon} weather-main-icon`;
+
+        // Navbar Widget Güncelle
+        if (navTempEl) navTempEl.textContent = `${Math.round(current.temperature_2m)}°`;
+        if (navIconEl) navIconEl.className = `fas ${info.icon}`;
 
     } catch (error) {
         console.error("Hava durumu alınamadı:", error);

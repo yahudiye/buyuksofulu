@@ -389,6 +389,36 @@ body:hover .cursor-glow {
     color: var(--primary);
 }
 
+.nav-weather-widget {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 16px;
+    border-radius: 30px;
+    margin-left: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--light-100);
+    font-size: 15px;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.nav-weather-widget i {
+    color: var(--primary);
+    font-size: 18px;
+}
+
+.nav-weather-widget:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}
+
 .nav-menu {
     display: flex;
     gap: 6px;
@@ -1959,6 +1989,26 @@ body:hover .cursor-glow {
 
     .nav-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    .brand-text {
+        display: none;
+    }
+
+    .nav-weather-widget {
+        margin-left: 8px;
+        padding: 4px;
+        background: transparent;
+        border: none;
+        font-size: 14px;
+        margin-right: auto;
+        /* Hamburgeri sağa it */
+    }
+
+    .nav-weather-widget:hover {
+        background: transparent;
+        transform: none;
+        box-shadow: none;
     }
 
     .nav-right {

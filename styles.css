@@ -2789,6 +2789,112 @@ body:hover .cursor-glow {
     }
 }
 
+/* Muhtar Card */
+.muhtar-card {
+    margin-top: 30px;
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(16, 185, 129, 0.05));
+    width: fit-content;
+    max-width: 400px;
+    /* Genişlik sınırı */
+}
+
+.muhtar-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.muhtar-img {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.muhtar-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    object-fit: cover;
+}
+
+.online-badge {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 12px;
+    height: 12px;
+    background: #10b981;
+    border: 2px solid var(--dark-100);
+    border-radius: 50%;
+}
+
+.muhtar-title h4 {
+    color: var(--light-100);
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.muhtar-title span {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.muhtar-message {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.muhtar-message i {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.muhtar-message p {
+    font-size: 14px;
+    color: var(--light-300);
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.muhtar-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-contact-outline {
+    flex: 1;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: 10px;
+    font-size: 14px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.btn-contact-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
 /* News Ticker */
 .news-ticker {
     display: flex;

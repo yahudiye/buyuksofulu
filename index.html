@@ -822,17 +822,20 @@
                     </div>
                 </div>
 
-                <form id="contact-form" class="contact-form glass">
+                <form id="contact-form" class="contact-form glass" action="https://formspree.io/f/myzkqpby"
+                    method="POST">
                     <h3>Mesaj Gönderin</h3>
                     <div class="form-row">
-                        <div class="form-group"><input type="text" id="name" placeholder=" " required><label>Adınız
+                        <div class="form-group"><input type="text" id="name" name="ad_soyad" placeholder=" "
+                                required><label>Adınız
                                 Soyadınız</label></div>
-                        <div class="form-group"><input type="email" id="email" placeholder=" "
+                        <div class="form-group"><input type="email" id="email" name="email" placeholder=" "
                                 required><label>E-posta</label></div>
                     </div>
-                    <div class="form-group"><input type="text" id="subject" placeholder=" " required><label>Konu</label>
+                    <div class="form-group"><input type="text" id="subject" name="konu" placeholder=" "
+                            required><label>Konu</label>
                     </div>
-                    <div class="form-group"><textarea id="message" rows="4" placeholder=" "
+                    <div class="form-group"><textarea id="message" name="mesaj" rows="4" placeholder=" "
                             required></textarea><label>Mesajınız</label></div>
                     <button type="submit" class="btn-primary full"><i class="fas fa-paper-plane"></i> Gönder</button>
                 </form>

@@ -656,10 +656,48 @@ function initScrollAnimations() {
 
 // Contact Form
 function initContactForm() {
-    document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        showNotification('Mesajınız gönderildi! En kısa sürede dönüş yapacağız.', 'success');
-        e.target.reset();
+
+        // Butonu Kilitle
+        const btn = form.querySelector('button');
+        const originalText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
+
+        const data = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                showNotification('Mesajınız başarıyla gönderildi! Teşekkürler.', 'success');
+                form.reset();
+            } else {
+                const result = await response.json();
+                if (result.errors) {
+                    showNotification('Hata: ' + result.errors.map(error => error.message).join(", "), 'error');
+                } else {
+                    showNotification('Mesaj gönderilemedi.', 'error');
+                }
+            }
+        } catch (error) {
+            console.error(error);
+            showNotification('Bağlantı hatası oluştu.', 'error');
+        } finally {
+            // Butonu Aç
+            btn.disabled = false;
+            btn.innerHTML = originalText;
+        }
     });
 }
 

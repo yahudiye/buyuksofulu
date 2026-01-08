@@ -3122,6 +3122,18 @@ body:hover .cursor-glow {
     max-width: 400px;
     padding: 0;
     overflow: hidden;
+    /* Okunaklı Arka Plan */
+    background: #12121a;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
+}
+
+@supports (backdrop-filter: blur(20px)) {
+    .profile-content {
+        background: rgba(18, 18, 26, 0.95);
+        /* %95 Opaklık */
+        backdrop-filter: blur(20px);
+    }
 }
 
 .profile-header-center {

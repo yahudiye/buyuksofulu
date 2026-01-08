@@ -28,22 +28,22 @@ const galleryData = [
     // Büyüksofulu Köyü resimleri
     {
         id: 1,
-        src: 'https://lh3.googleusercontent.com/p/AF1QipP2xGqJsD_wZ5pKj0CzF6lNwDhfXG2m3bPnZxTM=s1360-w1360-h1020',
+        src: 'https://d.koylerim.com/gallery/9_1.jpg',
         title: 'Büyüksofulu Köyü Panoraması',
         category: 'koy',
         fallback: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800'
     },
     {
         id: 2,
-        src: 'https://lh3.googleusercontent.com/p/AF1QipMqxk8z9Vz3T_cR6wC7F8qJdN5vS2mH4pLnYxQR=s1360-w1360-h1020',
+        src: 'https://d.koylerim.com/gallery/9_26.jpg',
         title: 'Köy Merkezi',
         category: 'koy',
         fallback: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800'
     },
     {
         id: 3,
-        src: 'https://lh3.googleusercontent.com/p/AF1QipNE5V0c0mHqkXr8A-qC4nY0Pj8D0k7n0Y0_5c0d=s1360-w1360-h1020',
-        title: 'Köy Yolu',
+        src: 'https://d.koylerim.com/gallery/9_6.jpg',
+        title: 'Karlı Manzarası',
         category: 'koy',
         fallback: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800'
     },
@@ -51,48 +51,48 @@ const galleryData = [
     // Eğni Yaylası resimleri
     {
         id: 4,
-        src: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800',
-        title: 'Eğni Yaylası Şelalesi',
+        src: 'https://d.koylerim.com/gallery/9_13.jpg',
+        title: 'Eğni Yaylası ',
         category: 'egni',
         tall: true
     },
     {
         id: 5,
-        src: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800',
+        src: 'https://d.koylerim.com/gallery/9_22.jpg',
         title: 'Eğni Yaylası Manzarası',
         category: 'egni'
     },
     {
         id: 6,
-        src: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800',
-        title: 'Kamp Alanı',
+        src: 'https://pbs.twimg.com/media/CYl9ClAW8AAEsv6.jpg',
+        title: 'Eğni Fotoğrafları',
         category: 'egni'
     },
 
     // Doğa resimleri
     {
         id: 7,
-        src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800',
-        title: 'Toros Ormanları',
+        src: 'https://d.koylerim.com/gallery/9_25.jpg',
+        title: 'Eğni Yaylası Kale',
         category: 'doga',
         tall: true
     },
     {
         id: 8,
-        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
-        title: 'Dağ Manzarası',
+        src: 'https://www.kampadana.com.tr/tema/blog/uploads/makaleler/galeri/diger/80156195-86B9-4FE6-A63F-726F6B386C9D.png',
+        title: 'Kamp Alanı',
         category: 'doga'
     },
     {
         id: 9,
-        src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800',
-        title: 'Toros Dağları',
+        src: 'https://www.kampadana.com.tr/tema/blog/uploads/makaleler/galeri/diger/8BAC9DC1-02E2-431C-AA5C-BC8051A90ADB.png',
+        title: 'Eğni Yaylası Yaz Festivali',
         category: 'doga'
     },
     {
         id: 10,
-        src: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=800',
-        title: 'Doğa Yürüyüşü',
+        src: 'https://www.kampadana.com.tr/tema/blog/uploads/makaleler/galeri/diger/6FBE28E3-8931-499E-B489-A6FC523CD5A3.png',
+        title: 'Eğni Mini Şelale',
         category: 'egni'
     },
     {
@@ -124,6 +124,49 @@ const uploadModal = document.getElementById('upload-modal');
 let currentLightboxIndex = 0;
 let filteredGallery = [...galleryData];
 
+// Video Gallery Data - YouTube videoları
+// YouTube video ID'si: https://www.youtube.com/watch?v=VIDEO_ID
+const videoData = [
+    {
+        id: 1,
+        videoId: 'SPldaxoQnTM',
+        title: 'Büyüksofulu Köyü Tanıtımı',
+        category: 'koy',
+        duration: '3:45'
+    },
+    {
+        id: 2,
+        videoId: 'nAcJfUEVLd4',
+        title: 'Eğni Yaylası Gezisi',
+        category: 'egni',
+        duration: '5:20'
+    },
+    {
+        id: 3,
+        videoId: 'ilTAVjaX-MI',
+        title: 'Eğni Yaylası Manzaraları',
+        category: 'egni',
+        duration: '4:10'
+    },
+    {
+        id: 4,
+        videoId: 'ijRmJcpjjvA',
+        title: 'Büyüksofulu Doğa Yürüyüşü',
+        category: 'doga',
+        duration: '6:30'
+    },
+    {
+        id: 5,
+        videoId: 'XMxwdB63CSI',
+        title: 'Suyungözü ve Şelale',
+        category: 'egni',
+        duration: '4:55'
+    }
+];
+
+const videoModal = document.getElementById('video-modal');
+const videoGrid = document.getElementById('video-grid');
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     // Set dark theme by default
@@ -137,6 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initModals();
     initAuth();
     initUpload();
+    initVideoGallery();
+    initVideoUpload();
     initCounters();
     initScrollAnimations();
     initContactForm();
@@ -584,3 +629,188 @@ document.querySelector('.nl-form')?.addEventListener('submit', (e) => {
         input.value = '';
     }
 });
+
+// ============================================
+// VIDEO GALLERY FUNCTIONS
+// ============================================
+
+function initVideoGallery() {
+    if (!videoGrid) return;
+    renderVideoGallery();
+    createVideoLightbox();
+}
+
+function renderVideoGallery() {
+    if (!videoGrid) return;
+
+    videoGrid.innerHTML = videoData.map(video => `
+        <div class="video-card" data-video-id="${video.videoId}">
+            <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg" alt="${video.title}" 
+                     onerror="this.src='https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg'">
+                <div class="video-play-btn"><i class="fab fa-youtube"></i></div>
+                <span class="video-duration">${video.duration}</span>
+            </div>
+            <div class="video-info">
+                <h4>${video.title}</h4>
+                <div class="video-meta">
+                    <span><i class="fas fa-folder"></i> ${getCategoryLabel(video.category)}</span>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    // Video card click handlers
+    document.querySelectorAll('.video-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const videoId = card.dataset.videoId;
+            openVideoLightbox(videoId);
+        });
+    });
+}
+
+function createVideoLightbox() {
+    // Create video lightbox if not exists
+    if (!document.getElementById('video-lightbox')) {
+        const lightbox = document.createElement('div');
+        lightbox.id = 'video-lightbox';
+        lightbox.className = 'video-lightbox';
+        lightbox.innerHTML = `
+            <button class="video-lightbox-close"><i class="fas fa-times"></i></button>
+            <div class="video-lightbox-content">
+                <iframe id="video-player" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        `;
+        document.body.appendChild(lightbox);
+
+        // Close handlers
+        lightbox.querySelector('.video-lightbox-close').addEventListener('click', closeVideoLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeVideoLightbox();
+        });
+    }
+}
+
+function openVideoLightbox(videoId) {
+    const lightbox = document.getElementById('video-lightbox');
+    const player = document.getElementById('video-player');
+
+    if (lightbox && player) {
+        player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeVideoLightbox() {
+    const lightbox = document.getElementById('video-lightbox');
+    const player = document.getElementById('video-player');
+
+    if (lightbox && player) {
+        player.src = '';
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Video Upload
+function initVideoUpload() {
+    const videoModal = document.getElementById('video-modal');
+
+    // Video upload button
+    document.getElementById('upload-video-btn')?.addEventListener('click', () => {
+        if (currentUser) {
+            openModal(videoModal);
+        } else {
+            openModal(authModal);
+        }
+    });
+
+    // Preview video
+    document.getElementById('preview-video')?.addEventListener('click', previewVideo);
+
+    // Submit video
+    document.getElementById('submit-video')?.addEventListener('click', submitVideo);
+}
+
+function previewVideo() {
+    const urlInput = document.getElementById('video-url');
+    const previewContainer = document.getElementById('video-preview-container');
+
+    if (!urlInput || !previewContainer) return;
+
+    const url = urlInput.value.trim();
+    const videoId = extractYouTubeId(url);
+
+    if (videoId) {
+        previewContainer.innerHTML = `
+            <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+        `;
+        showNotification('Video önizlemesi yüklendi!', 'success');
+    } else {
+        showNotification('Geçerli bir YouTube linki girin', 'error');
+    }
+}
+
+function extractYouTubeId(url) {
+    const patterns = [
+        /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
+        /youtube\.com\/shorts\/([^&\n?#]+)/
+    ];
+
+    for (const pattern of patterns) {
+        const match = url.match(pattern);
+        if (match) return match[1];
+    }
+    return null;
+}
+
+function submitVideo() {
+    if (!currentUser) {
+        showNotification('Lütfen önce giriş yapın', 'error');
+        return;
+    }
+
+    const urlInput = document.getElementById('video-url');
+    const titleInput = document.getElementById('video-title');
+    const catSelect = document.getElementById('video-cat');
+
+    const url = urlInput?.value.trim();
+    const videoId = extractYouTubeId(url);
+
+    if (!videoId) {
+        showNotification('Geçerli bir YouTube linki girin', 'error');
+        return;
+    }
+
+    const title = titleInput?.value.trim() || 'Büyüksofulu Video';
+    const category = catSelect?.value || 'koy';
+
+    // Yeni videoyu listeye ekle (geçici - backend ile değişir)
+    const newVideo = {
+        id: videoData.length + 1,
+        videoId: videoId,
+        title: title,
+        category: category,
+        duration: '0:00'
+    };
+
+    videoData.push(newVideo);
+    renderVideoGallery();
+
+    showNotification('Video eklendi! Onay sonrası yayınlanacak.', 'success');
+    closeAllModals();
+
+    // Reset form
+    if (urlInput) urlInput.value = '';
+    if (titleInput) titleInput.value = '';
+    document.getElementById('video-preview-container').innerHTML = '';
+}
+
+// ESC key for video lightbox
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeVideoLightbox();
+    }
+});
+

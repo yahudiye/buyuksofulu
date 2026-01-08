@@ -46,6 +46,7 @@
                 <a href="#about" class="nav-link">Hakkımızda</a>
                 <a href="#egni" class="nav-link">Eğni Yaylası</a>
                 <a href="#gallery" class="nav-link">Galeri</a>
+                <a href="#videos" class="nav-link">Videolar</a>
                 <a href="#activities" class="nav-link">Aktiviteler</a>
                 <a href="#contact" class="nav-link">İletişim</a>
             </div>
@@ -168,8 +169,7 @@
                 <div class="about-images">
                     <div class="about-main-img">
                         <img src="https://lh3.googleusercontent.com/p/AF1QipP2xGqJsD_wZ5pKj0CzF6lNwDhfXG2m3bPnZxTM=s1360-w1360-h1020"
-                            alt="Büyüksofulu Köyü"
-                            onerror="this.src='https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800'">
+                            alt="Büyüksofulu Köyü" onerror="this.src='https://ibb.co/vFKXWy2'">
                     </div>
                     <div class="about-badge">
                         <span class="badge-year">1928</span>
@@ -192,7 +192,8 @@
                         <p>Bölge tarihi açıdan zengin bir geçmişe sahiptir. <strong>Hitit, Roma, Bizans</strong>
                             egemenliklerinin ardından Selçuklular döneminde de yerleşim yeri olarak kullanılmış, 1360'lı
                             yıllarda <strong>Ramazanoğulları Beyliği'ne</strong>, Yavuz Sultan Selim döneminde ise
-                            <strong>Osmanlı Devleti'ne</strong> katılmıştır.</p>
+                            <strong>Osmanlı Devleti'ne</strong> katılmıştır.
+                        </p>
                     </div>
 
                     <div class="about-stats">
@@ -307,6 +308,27 @@
                 <button class="btn-primary" id="upload-btn">
                     <i class="fas fa-plus"></i>
                     <span>Fotoğraf Ekle</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Gallery Section -->
+    <section id="videos" class="videos section-dark">
+        <div class="container">
+            <div class="section-header center">
+                <div class="section-tag light"><i class="fas fa-video"></i> Videolar</div>
+                <h2 class="section-title">Video <span class="accent">Galerisi</span></h2>
+                <p style="color: var(--light-400);">Büyüksofulu ve Eğni Yaylası'ndan video içerikler</p>
+            </div>
+
+            <div class="video-grid" id="video-grid"></div>
+
+            <div class="video-cta">
+                <p><i class="fab fa-youtube"></i> YouTube video linkinizi paylaşın</p>
+                <button class="btn-primary" id="upload-video-btn">
+                    <i class="fas fa-plus"></i>
+                    <span>Video Ekle</span>
                 </button>
             </div>
         </div>
@@ -605,6 +627,34 @@
                     </select>
                     <input type="text" id="upload-title" placeholder="Fotoğraf başlığı (opsiyonel)">
                     <button class="btn-primary full" id="submit-upload"><i class="fas fa-upload"></i> Paylaş</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Upload Modal -->
+    <div id="video-modal" class="modal">
+        <div class="modal-box glass">
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+            <div class="modal-body">
+                <h2><i class="fab fa-youtube" style="color:#ff0000"></i> Video Ekle</h2>
+                <p>YouTube video linkini yapıştırın</p>
+                <div class="video-url-input">
+                    <div class="url-input-wrapper">
+                        <i class="fas fa-link"></i>
+                        <input type="text" id="video-url" placeholder="https://www.youtube.com/watch?v=...">
+                    </div>
+                    <button class="btn-preview" id="preview-video"><i class="fas fa-eye"></i> Önizle</button>
+                </div>
+                <div class="video-preview-container" id="video-preview-container"></div>
+                <div class="upload-form">
+                    <input type="text" id="video-title" placeholder="Video başlığı">
+                    <select id="video-cat">
+                        <option value="koy">Büyüksofulu Köyü</option>
+                        <option value="egni">Eğni Yaylası</option>
+                        <option value="doga">Doğa</option>
+                    </select>
+                    <button class="btn-primary full" id="submit-video"><i class="fas fa-plus"></i> Video Ekle</button>
                 </div>
             </div>
         </div>

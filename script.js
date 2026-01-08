@@ -394,10 +394,12 @@ function initModals() {
         });
     });
 
-    // Login button
+    // Login button (Mantığı initAuth fonksiyonuna taşındı)
+    /* 
     document.getElementById('login-btn')?.addEventListener('click', () => {
         openModal(authModal);
     });
+    */
 
     // Upload button
     document.getElementById('upload-btn')?.addEventListener('click', () => {
@@ -423,11 +425,67 @@ function closeAllModals() {
 function initAuth() {
     document.getElementById('google-login')?.addEventListener('click', handleGoogleLogin);
 
+    // Login Butonu Mantığı: Giriş yaptıysa Profil, yapmadıysa Login aç
+    document.getElementById('login-btn')?.addEventListener('click', () => {
+        if (currentUser) {
+            openProfileModal(); // Yeni fonksiyon
+        } else {
+            openModal(authModal);
+        }
+    });
+
+    // Profil İşlemleri
+    document.getElementById('logout-btn')?.addEventListener('click', handleLogout);
+    document.getElementById('save-nickname-btn')?.addEventListener('click', saveNickname);
+
     if (auth) {
         auth.onAuthStateChanged(user => {
             currentUser = user;
             updateAuthUI();
         });
+    }
+}
+
+// Profil Modalını Aç ve Doldur
+function openProfileModal() {
+    if (!currentUser) return;
+
+    const profileModal = document.getElementById('profile-modal');
+    document.getElementById('profile-name-lg').textContent = currentUser.displayName;
+    document.getElementById('profile-img-lg').src = currentUser.photoURL || 'assets/default-avatar.png';
+
+    // Lakabı LocalStorage'dan Çek
+    // Benzersiz key: nickname_userUID
+    const savedNickname = localStorage.getItem('nickname_' + currentUser.uid);
+    document.getElementById('user-nickname').value = savedNickname || '';
+
+    openModal(profileModal);
+}
+
+// Lakap Kaydetme
+function saveNickname() {
+    if (!currentUser) return;
+
+    const nickname = document.getElementById('user-nickname').value;
+    if (nickname.trim() === '') {
+        showNotification('Lütfen geçerli bir lakap yazın.', 'error');
+        return;
+    }
+
+    localStorage.setItem('nickname_' + currentUser.uid, nickname);
+    showNotification('Lakabınız kaydedildi: ' + nickname, 'success');
+}
+
+// Çıkış Yapma
+async function handleLogout() {
+    try {
+        await auth.signOut();
+        currentUser = null;
+        closeAllModals();
+        updateAuthUI();
+        showNotification('Başarıyla çıkış yapıldı.', 'info');
+    } catch (error) {
+        console.error('Logout error:', error);
     }
 }
 

@@ -949,6 +949,47 @@
         </div>
     </div>
 
+    <!-- Profile Modal -->
+    <div class="modal" id="profile-modal">
+        <div class="modal-content glass-card profile-content">
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+
+            <div class="profile-header-center">
+                <div class="profile-avatar-lg">
+                    <img id="profile-img-lg" src="" alt="Profile">
+                </div>
+                <h3 id="profile-name-lg">Kullanıcı Adı</h3>
+                <span class="user-role">Köy Sakini</span>
+            </div>
+
+            <div class="profile-body">
+                <div class="form-group nickname-group">
+                    <label><i class="fas fa-user-tag"></i> Köydeki Lakabın</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="user-nickname" placeholder="Örn: Sarı Memet, Gara Veli..."
+                            maxlength="30">
+                        <button id="save-nickname-btn" class="btn-save-sm" title="Kaydet"><i
+                                class="fas fa-check"></i></button>
+                    </div>
+                    <p class="input-hint">Seni köyde nasıl bilirler? Buraya yaz.</p>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="p-stat">
+                        <span class="p-num">0</span>
+                        <span class="p-label">Yorum</span>
+                    </div>
+                    <div class="p-stat">
+                        <span class="p-num">0</span>
+                        <span class="p-label">Video</span>
+                    </div>
+                </div>
+
+                <button class="btn-logout" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Video Upload Modal -->
     <div id="video-modal" class="modal">
         <div class="modal-box glass">

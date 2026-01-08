@@ -3115,6 +3115,151 @@ body:hover .cursor-glow {
     /* Highest z-index */
 }
 
+/* ... (Diğer stiller) ... */
+
+/* Profile Modal */
+.profile-content {
+    max-width: 400px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.profile-header-center {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0));
+    padding: 40px 30px 30px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.profile-avatar-lg {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--primary), transparent);
+}
+
+.profile-avatar-lg img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--dark-200);
+}
+
+#profile-name-lg {
+    margin: 0;
+    font-size: 20px;
+    color: white;
+}
+
+.user-role {
+    font-size: 13px;
+    color: var(--primary);
+    background: rgba(16, 185, 129, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+.profile-body {
+    padding: 30px;
+}
+
+.nickname-group label {
+    display: block;
+    color: var(--light-200);
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.input-wrapper input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+}
+
+.input-wrapper input:focus {
+    border-color: var(--primary);
+}
+
+.btn-save-sm {
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-save-sm:hover {
+    background: var(--primary-dark);
+}
+
+.input-hint {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-top: 8px;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.p-stat {
+    text-align: center;
+}
+
+.p-num {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+}
+
+.p-label {
+    font-size: 12px;
+    color: var(--light-300);
+}
+
+.btn-logout {
+    width: 100%;
+    padding: 12px;
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.btn-logout:hover {
+    background: #ef4444;
+    color: white;
+}
+
 .ticker-title {
     background: var(--primary);
     color: white;

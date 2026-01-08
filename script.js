@@ -857,26 +857,14 @@ function submitVideo() {
    NEW FEATURES (Weather)
    ========================================= */
 
-// Hava Durumu (Simülasyon - API key olmadan)
+// Hava Durumu (Tarih Güncelleme)
 function initWeather() {
-    const weatherWidget = document.getElementById('weather-widget');
-    if (!weatherWidget) return;
+    const dateEl = document.getElementById('weather-date');
+    if (!dateEl) return;
 
-    // Basit bir hava durumu simülasyonu
-    const weathers = [
-        { temp: 22, icon: 'sun', text: 'Güneşli' },
-        { temp: 19, icon: 'cloud-sun', text: 'Parçalı Bulutlu' },
-        { temp: 18, icon: 'cloud', text: 'Bulutlu' },
-        { temp: 24, icon: 'sun', text: 'Açık' }
-    ];
-
-    // Rastgele bir hava durumu seç (Şimdilik sabit de olabilir)
-    const current = weathers[Math.floor(Math.random() * weathers.length)];
-
-    weatherWidget.innerHTML = `
-        <i class="fas fa-${current.icon}"></i>
-        <span>${current.temp}°C</span>
-    `;
+    const now = new Date();
+    const options = { weekday: 'long', hour: '2-digit', minute: '2-digit' };
+    dateEl.textContent = now.toLocaleDateString('tr-TR', options);
 }
 
 // Sayfa yüklendiğinde çalıştır

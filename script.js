@@ -4,13 +4,15 @@
    ============================================ */
 
 // Firebase Config (Replace with your own)
+// Firebase Config
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "buyuksofulu.firebaseapp.com",
-    projectId: "buyuksofulu",
-    storageBucket: "buyuksofulu.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyCDeqUgCC3TSUu7cUgWX-Zszrp7gVUH11I",
+    authDomain: "sofulu.firebaseapp.com",
+    projectId: "sofulu",
+    storageBucket: "sofulu.firebasestorage.app",
+    messagingSenderId: "287606214226",
+    appId: "1:287606214226:web:36ae8493f6d212846fd98b",
+    measurementId: "G-YZBJRPK82K"
 };
 
 // Initialize Firebase
@@ -430,36 +432,35 @@ function initAuth() {
 }
 
 async function handleGoogleLogin() {
-    // DEMO GİRİŞ (Firebase Config henüz ayarlanmadığı için)
-    // Bu kısım canlıya alınmadan önce gerçek Firebase Auth ile değiştirilmelidir.
-
-    closeAllModals();
-
-    // Simüle edilmiş kullanıcı girişi
-    currentUser = {
-        displayName: 'Site Ziyaretçisi',
-        email: 'ziyaretci@buyuksofulu.com',
-        photoURL: 'https://ui-avatars.com/api/?name=Ziyaretci&background=10b981&color=fff'
-    };
-
-    updateAuthUI();
-    showNotification('Hoş geldiniz! (Demo Modu)', 'success');
-
-    /* GERÇEK KOD (Config girildikten sonra aktif edilecek):
     if (!auth) {
-        showNotification('Firebase yapılandırması gerekli.', 'error');
+        showNotification('Firebase ayarları eksik! Lütfen script.js dosyasındaki firebaseConfig alanını doldurun.', 'error');
+        console.error('Firebase Config Eksik: Lütfen Firebase Console\'dan aldığınız API anahtarlarını script.js dosyasının başındaki firebaseConfig objesine yapıştırın.');
         return;
     }
+
     try {
         const provider = new firebase.auth.GoogleAuthProvider();
-        await auth.signInWithPopup(provider);
+        // Pop-up açılmasını zorunlu kılmak için (Mobil uyumluluk için redirect de kullanılabilir ama popup daha pratik)
+        const result = await auth.signInWithPopup(provider);
+        const user = result.user;
+
+        console.log("Giriş Başarılı:", user.displayName);
         closeAllModals();
-        showNotification('Hoş geldiniz, ' + auth.currentUser.displayName + '!', 'success');
+        showNotification(`Hoş geldiniz, ${user.displayName}!`, 'success');
+
+        // Kullanıcı bilgisini güncelle
+        currentUser = user;
+        updateAuthUI();
+
     } catch (error) {
-        console.error(error);
-        showNotification('Giriş yapılamadı. Lütfen tekrar deneyin.', 'error');
+        console.error("Giriş Hatası:", error);
+        let errorMsg = 'Giriş yapılamadı.';
+        if (error.code === 'auth/popup-closed-by-user') errorMsg = 'Giriş penceresini kapattınız.';
+        if (error.code === 'auth/cancelled-popup-request') errorMsg = 'İşlem iptal edildi.';
+        if (error.code === 'auth/operation-not-allowed') errorMsg = 'Google girişi aktif değil. Firebase Console\'dan Authentication > Google kısmını açın.';
+
+        showNotification(errorMsg, 'error');
     }
-    */
 }
 
 function updateAuthUI() {

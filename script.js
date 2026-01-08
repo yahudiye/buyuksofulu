@@ -161,7 +161,17 @@ const videoData = [
         title: 'Suyungözü ve Şelale',
         category: 'egni',
         duration: '4:55'
-    }
+    },
+
+    {
+        id: 6,
+        videoId: 'dPWfZG65tHg',
+        title: 'BIR ZAMANLAR BÜYÜKSOFULU',
+        category: 'koy',
+        duration: '16:26'
+    },
+
+
 ];
 
 const videoModal = document.getElementById('video-modal');
@@ -841,6 +851,39 @@ function submitVideo() {
     if (urlInput) urlInput.value = '';
     if (titleInput) titleInput.value = '';
     document.getElementById('video-preview-container').innerHTML = '';
+}
+
+/* =========================================
+   NEW FEATURES (Weather)
+   ========================================= */
+
+// Hava Durumu (Simülasyon - API key olmadan)
+function initWeather() {
+    const weatherWidget = document.getElementById('weather-widget');
+    if (!weatherWidget) return;
+
+    // Basit bir hava durumu simülasyonu
+    const weathers = [
+        { temp: 22, icon: 'sun', text: 'Güneşli' },
+        { temp: 19, icon: 'cloud-sun', text: 'Parçalı Bulutlu' },
+        { temp: 18, icon: 'cloud', text: 'Bulutlu' },
+        { temp: 24, icon: 'sun', text: 'Açık' }
+    ];
+
+    // Rastgele bir hava durumu seç (Şimdilik sabit de olabilir)
+    const current = weathers[Math.floor(Math.random() * weathers.length)];
+
+    weatherWidget.innerHTML = `
+        <i class="fas fa-${current.icon}"></i>
+        <span>${current.temp}°C</span>
+    `;
+}
+
+// Sayfa yüklendiğinde çalıştır
+document.addEventListener('DOMContentLoaded', () => {
+    initWeather();
+    // Diğer init çağrıları burada yapılabilir
+});
 }
 
 // ESC key for video lightbox

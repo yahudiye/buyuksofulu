@@ -34,30 +34,47 @@
     <!-- Navigation -->
     <nav id="navbar" class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-brand">
-                <div class="brand-icon"><i class="fas fa-mountain"></i></div>
-                <div class="brand-text">
-                    <span class="brand-name">Büyüksofulu</span>
-                    <span class="brand-sub">Aladağ • Adana</span>
+            <div class="nav-logo">
+                <i class="fas fa-mountain"></i>
+                <span>Büyüksofulu</span>
+                <div class="weather-widget" id="weather-widget">
+                    <i class="fas fa-sun"></i>
+                    <span>22°C</span>
                 </div>
-            </a>
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link active">Anasayfa</a>
-                <a href="#about" class="nav-link">Hakkımızda</a>
-                <a href="#egni" class="nav-link">Eğni Yaylası</a>
-                <a href="#gallery" class="nav-link">Galeri</a>
-                <a href="#videos" class="nav-link">Videolar</a>
-                <a href="#activities" class="nav-link">Aktiviteler</a>
-                <a href="#contact" class="nav-link">İletişim</a>
             </div>
-            <div class="nav-right">
-                <button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button>
-                <button id="login-btn" class="login-btn glass"><i class="fab fa-google"></i> Giriş</button>
+
+            <div class="nav-links">
+                <a href="#home" class="active">Ana Sayfa</a>
+                <a href="#about">Hakkında</a>
+                <a href="#egni">Eğni Yaylası</a>
+                <a href="#gallery">Galeri</a>
+                <a href="#videos">Videolar</a>
+                <a href="#activities">Aktiviteler</a>
+                <a href="#contact">İletişim</a>
             </div>
-            <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+
+            <div class="nav-actions">
+                <button class="icon-btn" id="theme-toggle"><i class="fas fa-moon"></i></button>
+                <button class="btn-login" id="login-btn"><i class="fas fa-user"></i> <span>Giriş</span></button>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
         </div>
     </nav>
 
+    <!-- News Ticker -->
+    <div class="news-ticker">
+        <div class="ticker-title"><i class="fas fa-bullhorn"></i> DUYURULAR</div>
+        <div class="ticker-content">
+            <div class="ticker-item">📢 Büyüksofulu web sitemiz yayına girmiştir!</div>
+            <div class="ticker-item">🎉 Geleneksel Yayla Şenlikleri bu yıl 15 Ağustos'ta yapılacaktır.</div>
+            <div class="ticker-item">⚠️ Köy yolundaki bakım çalışmaları tamamlanmıştır.</div>
+            <div class="ticker-item">🌲 Eğni Yaylası doğa yürüyüşü etkinliğine tüm halkımız davetlidir.</div>
+        </div>
+    </div>
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-media">
@@ -380,56 +397,161 @@
                     <p>Toros Dağları'nın eteklerinde trekking rotaları</p>
                     <span class="ac-location"><i class="fas fa-map-marker-alt"></i> Çevre</span>
                 </div>
-                <div class="activity-card">
-                    <div class="ac-icon"><i class="fas fa-camera"></i></div>
-                    <h3>Fotoğrafçılık</h3>
-                    <p>Eşsiz doğa manzaraları ve köy yaşamı</p>
-                    <span class="ac-location"><i class="fas fa-map-marker-alt"></i> Her yer</span>
-                </div>
+                <!-- Transport Section -->
+                <section id="transport" class="transport section-alt">
+                    <div class="container">
+                        <div class="section-header center">
+                            <div class="section-tag"><i class="fas fa-map-signs"></i> Ulaşım</div>
+                            <h2 class="section-title">Büyüksofulu'ya <span class="gradient-text">Nasıl Gidilir?</span>
+                            </h2>
+                            <p>Aladağ'ın kalbine yolculuk</p>
+                        </div>
+
+                        <div class="transport-grid">
+                            <div class="transport-info">
+                                <div class="transport-card neon-border">
+                                    <div class="tc-icon"><i class="fas fa-car"></i></div>
+                                    <h3>Özel Araç İle</h3>
+                                    <ul class="transport-list">
+                                        <li><i class="fas fa-route"></i> <strong>Adana'dan:</strong> Kozan Yolu
+                                            üzerinden İmamoğlu sapağından Aladağ yönüne dönün (128 km).</li>
+                                        <li><i class="fas fa-route"></i> <strong>Aladağ'dan:</strong> Aladağ merkezden
+                                            Büyüksofulu levhalarını takip edin (28 km).</li>
+                                        <li><i class="fas fa-road"></i> Yolun tamamı asfalttır, her türlü araçla
+                                            gidilebilir.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="transport-card">
+                                    <div class="tc-icon"><i class="fas fa-bus"></i></div>
+                                    <h3>Toplu Taşıma</h3>
+                                    <ul class="transport-list">
+                                        <li><i class="fas fa-clock"></i> <strong>Adana Otogar:</strong> Her gün 08:00 ve
+                                            15:00'te Aladağ otobüsleri kalkmaktadır.</li>
+                                        <li><i class="fas fa-clock"></i> <strong>Yüreğir Garajı:</strong> Saat başı
+                                            Aladağ minibüsleri bulunmaktadır.</li>
+                                        <li><i class="fas fa-shuttle-van"></i> Aladağ merkezden köye servis imkanı
+                                            vardır.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="transport-map">
+                                <div class="map-frame">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100949.2323977536!2d35.350800049999995!3d37.5833333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152862d2e28325b7%3A0x6c0f6f6f6f6f6f6f!2sB%C3%BCy%C3%BCksofulu%2C%2001720%20Alada%C4%9F%2FAdana!5e0!3m2!1str!2str!4v1704712345678!5m2!1str!2str"
+                                        width="100%" height="400" style="border:0;" allowfullscreen=""
+                                        loading="lazy"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Testimonials (Updated) -->
+                <section class="testimonials section">
+                    <div class="container">
+                        <div class="section-header center">
+                            <div class="section-tag light"><i class="fas fa-comments"></i> Ziyaretçi Defteri</div>
+                            <h2 class="section-title">Misafirlerimiz <span class="accent">Ne Dedi?</span></h2>
+                        </div>
+
+                        <div class="testimonials-slider">
+                            <div class="testimonial-card glass">
+                                <div class="tc-quote"><i class="fas fa-quote-left"></i></div>
+                                <p>"Büyüksofulu'nun doğası gerçekten büyüleyici. Eğni Yaylası'nda kamp yapmak hayatımın
+                                    en huzurlu deneyimiydi."</p>
+                                <div class="tc-author">
+                                    <div class="tc-avatar"><img src="https://randomuser.me/api/portraits/men/32.jpg"
+                                            alt="User"></div>
+                                    <div>
+                                        <h4>Ahmet Yılmaz</h4>
+                                        <span>Doğa Fotoğrafçısı</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ... Diğer yorumlar script ile eklenebilir ... -->
+                            <div class="testimonial-card glass">
+                                <div class="tc-quote"><i class="fas fa-quote-left"></i></div>
+                                <p>"Köy halkı çok misafirperver. Bize ikram ettikleri sıkma ve ayranın tadı hala
+                                    damağımda. Tekrar geleceğim!"</p>
+                                <div class="tc-author">
+                                    <div class="tc-avatar"><img src="https://randomuser.me/api/portraits/women/44.jpg"
+                                            alt="User"></div>
+                                    <div>
+                                        <h4>Pınar Demir</h4>
+                                        <span>Gezgin</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <div class="footer-content">
+                        <div class="container ">
+                            <div class="footer-grid">
+                                <div class="footer-col">
+                                    <div class="footer-logo">
+                                        <i class="fas fa-mountain"></i>
+                                        <span>Büyüksofulu</span>
+                                    </div>
+                                    <p class="footer-desc">Aladağ'ın incisi, doğanın kalbi. Büyüksofulu Köyü ve Eğni
+                                        Yaylası'nın resmi tanıtım platformu.</p>
+                                    <div class="social-links">
+                                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="footer-col">
+                                    <h3>Hızlı Erişim</h3>
+                                    <ul class="footer-links">
+                                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Köyümüz</a></li>
+                                        <li><a href="#egni"><i class="fas fa-chevron-right"></i> Eğni Yaylası</a></li>
+                                        <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Fotoğraf
+                                                Galerisi</a></li>
+                                        <li><a href="#transport"><i class="fas fa-chevron-right"></i> Ulaşım</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="footer-col">
+                                    <h3>İletişim</h3>
+                                    <ul class="contact-list">
+                                        <li><i class="fas fa-map-marker-alt"></i> Büyüksofulu Köyü, Aladağ/ADANA</li>
+                                        <li><i class="fas fa-envelope"></i> info@buyuksofulu.com</li>
+                                        <li><i class="fas fa-phone"></i> Muhtarlık: +90 (XXX) XXX XX XX</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <div class="container">
+                            <div class="copyright">
+                                © 2024 Büyüksofulu. Tüm hakları saklıdır.
+                            </div>
+                            <div class="author">
+                                Tasarım ve Kodlama: <a href="#" class="author-link">Cihat Eren</a> <i
+                                    class="fas fa-code"></i>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>"Kamp için mükemmel bir yer. Şelale sesi eşliğinde uyumak paha biçilemez. Restorasyondan sonra
+                tesisler çok güzel olmuş."</p>
+            <div class="tc-author">
+                <div class="tc-avatar"><i class="fas fa-user"></i></div>
+                <div><strong>Ali D.</strong><span>Ankara'dan kampçı</span></div>
             </div>
         </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials section">
-        <div class="container">
-            <div class="section-header center">
-                <div class="section-tag"><i class="fas fa-comments"></i> Ziyaretçi Yorumları</div>
-                <h2 class="section-title">Ne <span class="gradient-text">Dediler?</span></h2>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="tc-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Eğni Yaylası'ndaki uçan salıncaklar muhteşemdi! Suyungözü'nde yüzdük, piknik yaptık. Kesinlikle
-                        tekrar geleceğiz."</p>
-                    <div class="tc-author">
-                        <div class="tc-avatar"><i class="fas fa-user"></i></div>
-                        <div><strong>Mehmet Y.</strong><span>İstanbul'dan ziyaretçi</span></div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="tc-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Büyüksofulu halkı çok misafirperver. Yöresel yemekler harikaydı. Doğası bozulmamış, şehrin
-                        stresinden kaçmak için ideal."</p>
-                    <div class="tc-author">
-                        <div class="tc-avatar"><i class="fas fa-user"></i></div>
-                        <div><strong>Ayşe K.</strong><span>Adana'dan ziyaretçi</span></div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="tc-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Kamp için mükemmel bir yer. Şelale sesi eşliğinde uyumak paha biçilemez. Restorasyondan sonra
-                        tesisler çok güzel olmuş."</p>
-                    <div class="tc-author">
-                        <div class="tc-avatar"><i class="fas fa-user"></i></div>
-                        <div><strong>Ali D.</strong><span>Ankara'dan kampçı</span></div>
-                    </div>
-                </div>
-            </div>
+        </div>
         </div>
     </section>
 

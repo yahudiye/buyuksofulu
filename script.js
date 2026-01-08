@@ -1014,36 +1014,60 @@ async function initWeather() {
     const navIconEl = document.getElementById('nav-icon');
     const navTempEl = document.getElementById('nav-temp');
 
-    // 1. Tarihi Güncelle (Her durumda çalışsın)
+    // 1. Tarihi Güncelle
     if (dateEl) {
         const now = new Date();
         const options = { weekday: 'long', hour: '2-digit', minute: '2-digit' };
         dateEl.textContent = now.toLocaleDateString('tr-TR', options);
     }
 
-    // 2. API Çağrısı (Aladağ Koordinatları: 37.5485, 35.3957)
+    // 2. API Çağrısı (Aladağ - Günlük Tahmin Dahil)
     try {
-        const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=37.5485&longitude=35.3957&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto');
+        const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=37.5485&longitude=35.3957&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto');
         if (!response.ok) throw new Error('API Hatası');
 
         const data = await response.json();
         const current = data.current;
+        const daily = data.daily;
 
-        // Elementler varsa doldur (Ana Bölüm)
+        // --- ANLIK DURUM ---
         if (tempEl) tempEl.textContent = `${Math.round(current.temperature_2m)}°C`;
         if (windEl) windEl.textContent = `Rüzgar: ${current.wind_speed_10m} km/s`;
         if (humidityEl) humidityEl.textContent = `Nem: %${current.relative_humidity_2m}`;
 
-        // Durum ve İkon
-        const code = current.weather_code;
-        const info = getWeatherInfo(code);
+        const currentCode = current.weather_code;
+        const currentInfo = getWeatherInfo(currentCode);
 
-        if (descEl) descEl.textContent = info.desc;
-        if (iconEl) iconEl.className = `fas ${info.icon} weather-main-icon`;
+        if (descEl) descEl.textContent = currentInfo.desc;
+        if (iconEl) iconEl.className = `fas ${currentInfo.icon} weather-main-icon`;
 
-        // Navbar Widget Güncelle
+        // Navbar Widget
         if (navTempEl) navTempEl.textContent = `${Math.round(current.temperature_2m)}°`;
-        if (navIconEl) navIconEl.className = `fas ${info.icon}`;
+        if (navIconEl) navIconEl.className = `fas ${currentInfo.icon}`;
+
+        // --- HAFTALIK TAHMİN ---
+        const forecastGrid = document.getElementById('forecast-grid');
+        if (forecastGrid && daily) {
+            let html = '';
+            // 6 Günlük tahmin (Bugün dahil)
+            for (let i = 0; i < 6; i++) {
+                const date = new Date(daily.time[i]);
+                const dayName = i === 0 ? 'Bugün' : date.toLocaleDateString('tr-TR', { weekday: 'short' });
+                const max = Math.round(daily.temperature_2m_max[i]);
+                const min = Math.round(daily.temperature_2m_min[i]);
+                const code = daily.weather_code[i];
+                const info = getWeatherInfo(code);
+                const activeClass = i === 0 ? 'active' : '';
+
+                html += `
+                <div class="forecast-card ${activeClass}">
+                    <span class="day-name">${dayName}</span>
+                    <i class="fas ${info.icon}"></i>
+                    <span class="day-temp">${max}° <small style="opacity:0.6">${min}°</small></span>
+                </div>`;
+            }
+            forecastGrid.innerHTML = html;
+        }
 
     } catch (error) {
         console.error("Hava durumu alınamadı:", error);

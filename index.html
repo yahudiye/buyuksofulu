@@ -88,7 +88,8 @@
             </div>
 
             <!-- Mini Hava Durumu (Navbar) -->
-            <div class="nav-weather-widget" id="nav-widget" title="Büyüksofulu Anlık Hava Durumu">
+            <div class="nav-weather-widget" id="nav-widget" title="Detaylı hava durumu için tıklayın"
+                onclick="document.getElementById('weather-section').scrollIntoView({behavior: 'smooth'})">
                 <i class="fas fa-cloud-sun" id="nav-icon"></i>
                 <span id="nav-temp">--°</span>
             </div>
@@ -591,36 +592,10 @@
                 </div>
 
                 <!-- Weekly Forecast -->
-                <div class="forecast-grid">
+                <div class="forecast-grid" id="forecast-grid">
                     <div class="forecast-card active">
-                        <span class="day-name">Bugün</span>
-                        <i class="fas fa-cloud"></i>
-                        <span class="day-temp">9° 3°</span>
-                    </div>
-                    <div class="forecast-card">
-                        <span class="day-name">Cuma</span>
-                        <i class="fas fa-cloud-rain"></i>
-                        <span class="day-temp">6° -3°</span>
-                    </div>
-                    <div class="forecast-card">
-                        <span class="day-name">Cmt</span>
-                        <i class="fas fa-sun"></i>
-                        <span class="day-temp">6° -3°</span>
-                    </div>
-                    <div class="forecast-card">
-                        <span class="day-name">Paz</span>
-                        <i class="fas fa-snowflake"></i>
-                        <span class="day-temp">5° 3°</span>
-                    </div>
-                    <div class="forecast-card">
-                        <span class="day-name">Pzt</span>
-                        <i class="fas fa-cloud-showers-heavy"></i>
-                        <span class="day-temp">4° 1°</span>
-                    </div>
-                    <div class="forecast-card">
-                        <span class="day-name">Sal</span>
-                        <i class="fas fa-cloud-sun"></i>
-                        <span class="day-temp">2° -6°</span>
+                        <span class="day-name">Yükleniyor...</span>
+                        <i class="fas fa-sync fa-spin"></i>
                     </div>
                 </div>
             </div>

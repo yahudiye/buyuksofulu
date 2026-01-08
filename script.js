@@ -42,70 +42,70 @@ const galleryData = [
     },
     {
         id: 3,
-        src: 'https://d.koylerim.com/gallery/9_6.jpg',
-        title: 'Karlı Manzarası',
+        src: 'https://d.koylerim.com/gallery/9_2.jpg',
+        title: 'Köyde Kış',
         category: 'koy',
         fallback: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800'
+    },
+    {
+        id: 4,
+        src: 'https://d.koylerim.com/gallery/9_11.jpg',
+        title: 'Köy Evleri ve Cami',
+        category: 'koy'
     },
 
     // Eğni Yaylası resimleri
     {
-        id: 4,
-        src: 'https://d.koylerim.com/gallery/9_13.jpg',
-        title: 'Eğni Yaylası ',
+        id: 5,
+        src: 'https://d.koylerim.com/gallery/9_16.jpg',
+        title: 'Eğni Yaylası Yolu',
         category: 'egni',
         tall: true
     },
     {
-        id: 5,
-        src: 'https://d.koylerim.com/gallery/9_22.jpg',
+        id: 6,
+        src: 'https://d.koylerim.com/gallery/9_20.jpg',
         title: 'Eğni Yaylası Manzarası',
         category: 'egni'
     },
     {
-        id: 6,
-        src: 'https://pbs.twimg.com/media/CYl9ClAW8AAEsv6.jpg',
-        title: 'Eğni Fotoğrafları',
+        id: 7,
+        src: 'https://d.koylerim.com/gallery/9_17.jpg',
+        title: 'Yayla Doğası',
+        category: 'egni',
+        tall: true
+    },
+    {
+        id: 8,
+        src: 'https://d.koylerim.com/gallery/9_22.jpg',
+        title: 'Yayla Evleri',
         category: 'egni'
     },
 
     // Doğa resimleri
     {
-        id: 7,
-        src: 'https://d.koylerim.com/gallery/9_25.jpg',
-        title: 'Eğni Yaylası Kale',
-        category: 'doga',
-        tall: true
-    },
-    {
-        id: 8,
-        src: 'https://www.kampadana.com.tr/tema/blog/uploads/makaleler/galeri/diger/80156195-86B9-4FE6-A63F-726F6B386C9D.png',
-        title: 'Kamp Alanı',
-        category: 'doga'
-    },
-    {
         id: 9,
-        src: 'https://www.kampadana.com.tr/tema/blog/uploads/makaleler/galeri/diger/8BAC9DC1-02E2-431C-AA5C-BC8051A90ADB.png',
-        title: 'Eğni Yaylası Yaz Festivali',
+        src: 'https://d.koylerim.com/gallery/9_12.jpg',
+        title: 'Toros Dağları',
         category: 'doga'
     },
     {
         id: 10,
-        src: 'https://www.kampadana.com.tr/tema/blog/uploads/makaleler/galeri/diger/6FBE28E3-8931-499E-B489-A6FC523CD5A3.png',
-        title: 'Eğni Mini Şelale',
-        category: 'egni'
+        src: 'https://d.koylerim.com/gallery/9_18.jpg',
+        title: 'Gün Batımı',
+        category: 'doga'
     },
     {
         id: 11,
-        src: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800',
-        title: 'Gün Batımı',
-        category: 'koy'
+        src: 'https://d.koylerim.com/gallery/9_25.jpg',
+        title: 'Tarihi Kalıntılar',
+        category: 'doga'
     },
     {
         id: 12,
-        src: 'https://images.unsplash.com/photo-1414016642750-7fdd78dc33d9?w=800',
-        title: 'Piknik Alanı',
-        category: 'egni'
+        src: 'https://d.koylerim.com/gallery/9_5.jpg',
+        title: 'Orman Yolu',
+        category: 'doga'
     }
 ];
 
@@ -884,7 +884,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initWeather();
     // Diğer init çağrıları burada yapılabilir
 });
-}
+
 
 // ESC key for video lightbox
 document.addEventListener('keydown', (e) => {

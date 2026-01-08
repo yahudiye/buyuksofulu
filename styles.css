@@ -1928,6 +1928,37 @@ body:hover .cursor-glow {
 
     .nav-toggle {
         display: flex;
+        flex-direction: column;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        border: none;
+        z-index: 1002;
+        gap: 6px;
+    }
+
+    .nav-toggle span {
+        width: 24px;
+        height: 2px;
+        background: white;
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+        width: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
     }
 
     .nav-right {
